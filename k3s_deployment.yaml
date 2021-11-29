@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rpi-detection-motion
+spec:
+  selector:
+   matchLabels:
+    app: rpi-detection-motion
+  replicas: 1
+  minReadySeconds: 20
+  strategy:
+   type: RollingUpdate
+   rollingUpdate:
+    maxUnavailable: 1
+    maxSurge: 0
+  template:
+    metadata:
+      labels:
+        app: rpi-detection-motion
+    spec:
+      containers:
+      - name: motion
+        image: hrabhijith/rpi-detection:motion29
+        imagePullPolicy: Always
+        securityContext:
+         capabilities:
+          add:
+           - "root"
+         privileged: true
+        tty: true
+        env:
+        - name: DISPLAY
+          value: ":0"
+        volumeMounts:
+          - name: dev-video0
+            mountPath: "/dev/video0"
+          - name: tmp-unix
+            mountPath: "/tmp/.X11-unix"
+      volumes:
+        - name: dev-video0
+          hostPath:
+           path: "/dev/video0"
+        - name: tmp-unix
+          hostPath:
+           path: "/tmp/.X11-unix"
