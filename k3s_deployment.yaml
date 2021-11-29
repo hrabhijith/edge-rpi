@@ -6,7 +6,7 @@ spec:
   selector:
    matchLabels:
     app: rpi-detection-motion
-  replicas: 2
+  replicas: 1
   minReadySeconds: 20
   strategy:
    type: RollingUpdate
