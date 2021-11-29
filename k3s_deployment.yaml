@@ -43,8 +43,3 @@ spec:
         - name: tmp-unix
           hostPath:
            path: "/tmp/.X11-unix"
-      tolerations:
-        - key: "node.kubernetes.io/disk-pressure"
-          operator: "Exists"
-          effect: "NoSchedule"
-          tolerationSeconds: 20000
