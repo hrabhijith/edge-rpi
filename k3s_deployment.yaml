@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: motion
-        image: hrabhijith/rpi-detection:motion29
+        image: hrabhijith2/rpi-detection:motionx86
         imagePullPolicy: Always
         securityContext:
          capabilities:
