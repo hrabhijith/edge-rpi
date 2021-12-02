@@ -6,7 +6,7 @@ spec:
   selector:
    matchLabels:
     app: rpi-detection-motion
-  replicas: 0
+  replicas: 1
   minReadySeconds: 20
   strategy:
    type: RollingUpdate
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: motion
-        image: hrabhijith2/rpi-detection:colorx86
+        image: hrabhijith2/rpi-detection:motionx86
         securityContext:
          capabilities:
           add:
