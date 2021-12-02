@@ -21,7 +21,6 @@ spec:
       containers:
       - name: motion
         image: hrabhijith2/rpi-detection:motionx86
-        imagePullPolicy: Always
         securityContext:
          capabilities:
           add:
