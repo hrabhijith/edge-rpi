@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: motion
-        image: hrabhijith2/rpi-detection:colorx86
+        image: hrabhijith2/rpi-detection:shapex86
         securityContext:
          capabilities:
           add:
